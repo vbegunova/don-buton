@@ -1,0 +1,684 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="assets/css/bootstrap.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<script src="assets/js/main.js"></script>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+	
+	<script src="assets/js/jquery.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	
+	<title>Don Buton - цветочный магазин</title>
+	<style>
+		body {
+			font-family: 'Montserrat', sans-serif;
+			font-size: 12px;
+			font-weight: 400;
+			color: #402C49;
+		}
+		h1, h2, h3, h4 {
+			font-style: normal;
+			font-weight: 900;
+			margin: 0;
+			padding: 0;
+		}
+		h2 {
+			font-size: 30px;
+		}
+		h3 {
+			font-size: 19px;
+			margin-top: 26px;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="header">
+		<a name="top"></a>
+			<div class="nav">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3">
+							<img src= "./assets/images/logo1.svg" class="logo">
+						</div>
+						<div class="col-md-4">
+							<nav class="menu">
+								<a class="nav_link" href="#catalog">Цветы</a>
+								<a class="nav_link" href="#catalog">Подарки</a>
+								<a class="nav_link" href="#catalog">Сладости</a>
+								<a class="nav_link" href="#about-us">О нас</a>
+								<a class="nav_link" href="#about-us">Другое</a>
+							</nav>
+						</div>
+						<div class="col-md-2">
+							<p id="phone">+38 (057) 143-94-84</p>
+						</div>
+						<div class="col-md-1">
+							<button class="bin" data-bs-toggle="modal" data-bs-target="#modal-bin">
+								<img src="assets/images/bin.svg" class="icbin">
+							</button>
+						</div>
+						<div class="col-md-2">
+							<button type="button" class="sign_in" id="btn-sign" data-bs-toggle="modal" data-bs-target="#modal-sign">
+								<img src="assets/images/Кнопка входа.svg" class="icsign">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="modal-bin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-bg">
+					<div id="overflow">
+						<div class="modal-dialog modal-dialog-centered">
+							<div class="modal-content">
+								<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel">Корзина</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<table class="table">
+										<tbody>
+											<tr>
+												<td><img src="assets/images/Брауни.jpg" alt="" style="width:100px"></td>
+												<td><a href="#" class="product">Брауни</a></td>
+												<td class="price">3000 грн.</td>
+												<td class="quantity">1</td>
+											</tr>
+											<tr>
+												<td><img src="assets/images/Букет роз.jpg" alt="" style="width:100px"></td>
+												<td><a href="#" class="product">Букет роз</a></td>
+												<td class="price">1890 грн.</td>
+												<td class="quantity">1</td>
+											</tr>
+											<tr>
+												<td><img src="assets/images/Реверанс.jpg" alt="" style="width:100px"></td>
+												<td><a href="#" class="product">Реверанс</a></td>
+												<td class="price">2400 грн.</td>
+												<td class="quantity">1</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal"  style="background: #998D9F; opacity: 50%">Закрыть</button>
+								<button type="button" class="btn btn-primary" data-bs-target="#modal-success" data-bs-toggle="modal" data-bs-dismiss="modal" style="background: #FD6383; border: none">Оформить заказ</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="modal-success" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title">Заказ оформлен</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+						<p style="font-size: 14px; padding-top: 10px">Заказ успешно оформлен. Ожидайте, наш оператор свяжется с Вами!</p>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-target="index" data-bs-toggle="modal" data-bs-dismiss="modal" style="background: #FD6383; border: none; padding-top: 10px">OK</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="modal-sign" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-bg">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel2">Вход</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group" style="margin-top: -10px">
+										<label for="email">E-mail</label>
+										<input type="email" class="form-control" id="email" style="font-size: 14px" placeholder="Введите e-mail" required="required">
+									</div>
+									<div class="form-group">
+										<label for="password">Пароль</label>
+										<input type="password" class="form-control" id="password" style="margin-bottom: 4px; font-size: 14px" placeholder="Введите пароль" required="required">
+										<p class="help-block" style="padding-bottom: 7px; ">Пароль содержит от 8 до 16 символов</p>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal" data-bs-dismiss="modal"  style="background: #998D9F; opacity: 50%">Зарегистрироваться</button>
+							<button type="button" class="btn btn-primary" data-bs-target="index" data-bs-toggle="modal" data-bs-dismiss="modal" style="background: #FD6383; border: none">Войти</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+				<div class="modal-bg">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalToggleLabel2">Регистрация</h5>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<form role="form">
+									<div class="form-group" style="margin-top: -10px">
+										<label for="name">Имя</label>
+										<input type="name" class="form-control" id="name" style="font-size: 14px" placeholder="Введите имя" required="required">
+									</div>
+									<div class="form-group">
+										<label for="surname">Фамилия</label>
+										<input type="surname" class="form-control" id="surname" style="font-size: 14px" placeholder="Введите фамилию" required="required">
+									</div>
+									<div class="form-group">
+										<label for="email">E-mail</label>
+										<input type="email" class="form-control" id="email-reg" style="font-size: 14px" placeholder="Введите e-mail" required="required">
+										<span id="valid_email_message" class="message_error"></span>
+									</div>
+									<div class="form-group">
+										<label for="password">Пароль</label>
+										<input type="password" class="form-control" id="password-reg" style="margin-bottom: 4px; font-size: 14px" placeholder="Введите пароль" required="required">
+										<p class="help-block" style="padding-bottom: 7px">Пароль должен содержать от 8 до 16 символов</p>
+										<span id="valid_password_message" class="message_error"></span>
+									</div>
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-target="#modal-sign" data-bs-toggle="modal" data-bs-dismiss="modal"  style="background: #998D9F; opacity: 50%">Назад</button>
+								<button name="regist" class="btn btn-primary" data-bs-target="index" data-bs-toggle="modal" data-bs-dismiss="modal" style="background: #FD6383; border: none">Зарегистрироваться</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>		
+		
+			<div class="offer">
+				<div class="container">
+					<div class="row">	
+						<div class="col-md-6">
+							<div class="offer-cont">
+								<h1 class="offer-cont_title">
+									Свежие цветы и
+									хорошее настроение
+									в любой день и погоду
+								</h1>
+								<p class="offer-cont_text">
+									У нас Вы найдёте восхитительные, нежные
+									и стойкие букеты под любую улыбку и с
+									круглосуточной доставкой!
+								</p>
+								<a class="offer-cont_btn" href="#catalog">
+									Смотреть каталог
+								</a>
+							</div>
+						</div>
+						<div class="col-md-6 carousel-container">
+							<div id="rectangle"></div>
+							<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+							  	<div class="carousel-indicators carind">
+									<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+									<button type="button" aria-label="Slide 2" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1">
+									</button>
+									<button type="button" aria-label="Slide 3" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2">
+									</button>
+							  	</div>
+						  		<div class="carousel-inner pic">
+									<div class="carousel-item active">
+								  		<img src="assets/images/first page pict 1.jpg" class="d-block w-100" alt="...">
+									  	<h1 class="first-pic-name"> Розовая мечта </h1>
+									  	<p class="first-pic-text"> от 2190 грн. </p>
+										<a class="arrow1" href="#catalog">
+											<img src="assets/images/arrow1.svg">
+										</a>
+									</div>
+									<div class="carousel-item">
+								  		<img src="assets/images/first page pict 2.jpg" class="d-block w-100" alt="...">
+									  	<h1 class="first-pic-name"> Реверанс </h1>
+									  	<p class="first-pic-text"> от 2400 грн. </p>
+										<a class="arrow1" href="#catalog">
+											<img src="assets/images/arrow1.svg">
+										</a>
+											
+									</div>
+									<div class="carousel-item">
+								  		<img src="assets/images/first page pict 3.jpg" class="d-block w-100" alt="...">
+									  	<h1 class="first-pic-name"> Брауни </h1>
+									  	<p class="first-pic-text"> от 3000 грн. </p>
+										<a class="arrow1" href="#catalog">
+											<img src="assets/images/arrow1.svg">
+										</a>
+									</div>
+							  	</div>
+								
+							  	<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Previous</span>
+							  	</button>
+							  	<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Next</span>
+							  	</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="top">
+					<div class="container">
+						<div class="row">	
+							<div class="col">
+									<h2 id="header-top-offer">ТОП Предложения</h2>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								
+									<div class="card border-0">
+										<div class="card-body">
+											<h3 class="card-title">Реверанс</h3>
+											<img src="assets/images/Реверанс.jpg" class="card-img-top" alt="Реверанс">
+											<p class="card-text">Букет состоит из 31 тюльпана</p>
+											<p class="card-price mt-auto">2400 грн.</p>
+											<button href="#" class="plus">
+												<img src="assets/images/plus.svg">
+											</button>
+										</div>
+									</div>
+								
+							</div>
+							<div class="col">
+								
+									<div class="card border-0">
+										<div class="card-body">
+											<h3 class="card-title">Пудровое счастье</h3>
+											<img src="assets/images/Пудровое счастье.jpg" class="card-img-top" alt="Пудровое счастье">
+											<p class="card-text">Букет состоит из 31 пиона и орхидеи</p>
+											<p class="card-price">4160 грн.</p>
+											<button href="#" class="plus">
+												<img src="assets/images/plus.svg">
+											</button>
+										</div>
+									</div>
+								
+							</div>
+							<div class="col">
+								
+									<div class="card border-0">
+										<div class="card-body">
+											<h3 class="card-title">Брауни</h3>
+											<img src="assets/images/Брауни.jpg" class="card-img-top" alt="Брауни">
+											<p class="card-text">Букет состоит из 51 тюльпана</p>
+											<p class="card-price">3000 грн.</p>
+											<button href="#" class="plus">
+												<img src="assets/images/plus.svg">
+											</button>						
+										</div>
+									</div>
+								
+							</div>
+							<div class="col">
+								
+									<div class="card border-0">
+										<div class="card-body">
+											<h3 class="card-title">Букет роз</h3>
+											<img src="assets/images/Букет роз.jpg" class="card-img-top" alt="Букет роз">
+											<p class="card-text">Букет состоит из 21 красной розы с ножкой 71 см</p>
+											<p class="card-price mt-auto">1890 грн.</p>
+											<button href="#" class="plus">
+												<img src="assets/images/plus.svg">
+											</button>						
+										</div>
+									</div>
+								
+							</div>
+					
+						</div>
+					</div>
+			</div>
+			<div class="banners">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6" style="position: relative">
+							<img src="assets/images/Создай букет.jpg" style="width: 100%">
+							<h2 style="width: 410px; font-size: 30px; position: absolute; top: 55px; left: 60px; color: #fff">Хороший букет цветов -
+							прекрасный подарок
+							по любому поводу</h2>
+							<p style="font-size: 19px; position: absolute; top: 175px; left: 60px; color: #fff">Создай свой букет с нашими флористами</p>
+							<div class="line"></div>
+							<button href="#" class="banner-arrow">
+								<img src="assets/images/arrow3.svg">
+							</button>
+						</div>
+						<div class="col-md-6" style="position: relative">
+							<img src="assets/images/Шарики.jpg" style="width: 100%">
+							<h2 style="width: 460px; font-size: 30px; position: absolute; top: 55px; left: 60px; color: #fff">Воздушные шарики - это
+							волнующий сюрприз даже
+							для взрослого!</h2>
+							<p style="font-size: 19px; position: absolute; top: 175px; left: 60px; color: #fff">Смотри наши варианты связок</p>
+							<div class="line"></div>
+							<button href="#" class="banner-arrow">
+								<img src="assets/images/arrow3.svg">
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="catalog">
+				<a name="catalog"></a>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3">
+										<h2 id="catalog">Каталог</h2>
+									</div>
+								<div class="col-md-9">
+									<nav class="top-offer-menu">
+										<a class="nav_link" href="#">Все</a>
+										<a class="nav_link" href="#">Цветы</a>
+										<a class="nav_link" href="#">Воздушные шарики</a>
+										<a class="nav_link" href="#">Подарки</a>
+										<a class="nav_link" href="#">Сладости</a>
+									</nav>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Реверанс</h3>
+												<img src="assets/images/Реверанс.jpg" class="card-img-top" alt="Реверанс">
+												<p class="card-text">Букет состоит из 31 тюльпана</p>
+												<p class="card-price mt-auto">2400 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>
+											</div>
+										</div>
+
+								</div>
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Пудровое счастье</h3>
+												<img src="assets/images/Пудровое счастье.jpg" class="card-img-top" alt="Пудровое счастье">
+												<p class="card-text">Букет состоит из 31 пиона и орхидеи</p>
+												<p class="card-price">4160 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>
+											</div>
+										</div>
+
+								</div>
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Брауни</h3>
+												<img src="assets/images/Брауни.jpg" class="card-img-top" alt="Брауни">
+												<p class="card-text">Букет состоит из 51 тюльпана</p>
+												<p class="card-price">3000 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>						
+											</div>
+										</div>
+
+								</div>
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Букет роз</h3>
+												<img src="assets/images/Букет роз.jpg" class="card-img-top" alt="Букет роз">
+												<p class="card-text">Букет состоит из 21 красной розы с ножкой 71 см</p>
+												<p class="card-price mt-auto">1890 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>						
+											</div>
+										</div>
+
+								</div>
+
+							</div>
+						<div class="row" style="margin-top: 30px;">
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Реверанс</h3>
+												<img src="assets/images/Реверанс.jpg" class="card-img-top" alt="Реверанс">
+												<p class="card-text">Букет состоит из 31 тюльпана</p>
+												<p class="card-price mt-auto">2400 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>
+											</div>
+										</div>
+
+								</div>
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Пудровое счастье</h3>
+												<img src="assets/images/Пудровое счастье.jpg" class="card-img-top" alt="Пудровое счастье">
+												<p class="card-text">Букет состоит из 31 пиона и орхидеи</p>
+												<p class="card-price">4160 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>
+											</div>
+										</div>
+
+								</div>
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Брауни</h3>
+												<img src="assets/images/Брауни.jpg" class="card-img-top" alt="Брауни">
+												<p class="card-text">Букет состоит из 51 тюльпана</p>
+												<p class="card-price">3000 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>						
+											</div>
+										</div>
+
+								</div>
+								<div class="col">
+
+										<div class="card border-0">
+											<div class="card-body">
+												<h3 class="card-title">Букет роз</h3>
+												<img src="assets/images/Букет роз.jpg" class="card-img-top" alt="Букет роз">
+												<p class="card-text">Букет состоит из 21 красной розы с ножкой 71 см</p>
+												<p class="card-price mt-auto">1890 грн.</p>
+												<button href="#" class="plus">
+													<img src="assets/images/plus.svg">
+												</button>						
+											</div>
+										</div>
+
+								</div>
+
+							</div>
+						</div>
+				</div>
+			<div class="gallery">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<h2 style="margin-top: 150px">Галерея</h2>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col carousel-container">
+						<div id="carouselIndicators" class="carousel slide" data-bs-ride="carousel">
+							<div class="carousel-inner pic">
+								<div class="carousel-item active">
+									<div class="row">
+										<div class="col">
+											<img src="assets/images/Галерея 1.jpg" style="width: 100%">
+										</div>
+										<div class="col">
+											<img src="assets/images/Галерея 2.jpg" style="width: 100%">
+										</div>
+										<div class="col">
+											<img src="assets/images/Галерея 3.jpg" style="width: 100%">
+										</div>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<div class="row">
+										<div class="col">
+											<img src="assets/images/Галерея 2.jpg" style="width: 100%">
+										</div>
+										<div class="col">
+											<img src="assets/images/Галерея 3.jpg" style="width: 100%">
+										</div>
+										<div class="col">
+											<img src="assets/images/Галерея 1.jpg" style="width: 100%">
+										</div>
+									</div>
+								</div>
+								<div class="carousel-item">
+									<div class="row">
+										<div class="col">
+											<img src="assets/images/Галерея 3.jpg" style="width: 100%">
+										</div>
+										<div class="col">
+											<img src="assets/images/Галерея 2.jpg" style="width: 100%">
+										</div>
+										<div class="col">
+											<img src="assets/images/Галерея 1.jpg" style="width: 100%">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicators" data-bs-slide="prev">
+								<span class="carousel-control-prev-icon" aria-hidden="true" style="margin-left: -100px"></span>
+								<span class="visually-hidden">Previous</span>
+							</button>
+							<button class="carousel-control-next" type="button" data-bs-target="#carouselIndicators" data-bs-slide="next">
+								<span class="carousel-control-next-icon" aria-hidden="true" style="margin-right: -100px"></span>
+								<span class="visually-hidden">Next</span>
+							</button>
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="triggers">
+				<a name="about-us"></a>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<h2 style="margin-top: 120px">Наши преимущества</h2>
+							<p style="margin-top: 23px; width: 458px; font-size: 18px">Каждый день мы делаем все, чтобы создать
+							лучший сервис</p>
+						</div>
+					</div>
+					<div class="row text-center" style="margin-top: 40px">
+						<div class="col-md-4">
+							<img src="assets/images/trigger1.svg">
+							<h3>Качество</h3>
+							<p style="margin-top: 26px; width: 268px; font-size: 15px; margin-left: auto; margin-right: auto">Мы вручную отбираем цветы, собираем букеты и ежедневно работаем над улучшением качества наших услуг</p>
+						</div>
+						<div class="col-md-4">
+							<img src="assets/images/trigger2.svg">
+							<h3>Доставка 24/7</h3>
+							<p style="margin-top: 26px; width: 268px; font-size: 15px; margin-left: auto; margin-right: auto">Осуществляем круглосуточную доставку в городе Харьков и по всей Украине</p>
+						</div>
+						<div class="col-md-4">
+							<img src="assets/images/trigger3.svg">
+							<h3>Цена</h3>
+							<p style="margin-top: 26px; width: 268px; font-size: 15px; margin-left: auto; margin-right: auto">У нас лучшая цена на рынке благодаря нашим партнерам</p>
+						</div>
+					</div>
+				</div>
+			</div>
+					
+	</header>
+	
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<img src="assets/images/logo footer.svg" style="margin-top: 62px">
+				</div>
+				<div class="col-md-4">
+					<nav class="menu-footer">
+						<a class="nav_link-footer" href="#catalog">Цветы</a>
+						<a class="nav_link-footer" href="#catalog">Подарки</a>
+						<a class="nav_link-footer" href="#catalog">Сладости</a>
+						<a class="nav_link-footer" href="#about-us">О нас</a>
+						<a class="nav_link-footer" href="#about-us"><img src="assets/images/other.svg"></a>
+					</nav>
+				</div>
+				<div class="col-md-1 mx-auto">
+					<a href="#top"><img src="assets/images/arrow footer.svg" style="margin-top: 70px; margin-left: 30px"></a>
+				</div>
+				<div class="col-md-2">
+					<p id="num-footer">+38 (057) 143-94-84</p>
+				</div>
+				<div class="col-md-2">
+					<button class="footer_btn" id="btn-call" data-bs-toggle="modal" data-bs-target="#modal-call">
+						Заказать звонок
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade" id="modal-call" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title">Заказать звонок</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+						<form role="form">
+									<div class="form-group" style="margin-top: -10px">
+										<label for="name">Имя</label>
+										<input type="name-call" class="form-control" id="name-call" style="margin-bottom: 4px; font-size: 14px" placeholder="Введите пароль" required="required">
+									</div>
+									<div class="form-group" style="margin-top: 10px">
+										<label for="phone">Номер телефона</label>
+										<input type="call" class="form-control" id="call" style="font-size: 14px" placeholder="Введите номер телефона" required="required">
+									</div>
+								</form>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-target="#modal-success-call" data-bs-toggle="modal" data-bs-dismiss="modal" style="background: #FD6383; border: none; padding-top: 10px">Заказать звонок</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="modal fade" id="modal-success-call" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title">Заявка принята</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+						<div class="modal-body">
+						<p style="font-size: 14px; padding-top: 10px">Заявка принята. Ожидайте, наш оператор свяжется с Вами!</p>
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-bs-target="index" data-bs-toggle="modal" data-bs-dismiss="modal" style="background: #FD6383; border: none; padding-top: 10px">OK</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</footer>
+</body>
+</html>
